@@ -55,6 +55,11 @@ export class AuthService {
     return false;
   }
 
+  // This function returns the current logged in user
+  getLoggedInUser(): User {
+    return this.getLocalData();
+  }
+
   // This function checks if the
   isLoggedIn(): boolean {
     return this.getLocalData();
