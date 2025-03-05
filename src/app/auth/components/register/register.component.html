@@ -69,6 +69,42 @@
     </p>
   </div>
 
+  <div class="row-container">
+    <!-- User Type Radio Option -->
+    <label class="label-text">
+      <!-- Option Project Manager -->
+      <input
+        type="radio"
+        name="userType"
+        value="Project Manager"
+        [(ngModel)]="userInput.userType"
+      />
+      Project Manager
+    </label>
+
+    <!-- Option Team Leader -->
+    <label class="label-text">
+      <input
+        type="radio"
+        name="userType"
+        value="Team Leader"
+        [(ngModel)]="userInput.userType"
+      />
+      Team Leader
+    </label>
+
+    <!-- Option Developer -->
+    <label class="label-text">
+      <input
+        type="radio"
+        name="userType"
+        value="Developer"
+        [(ngModel)]="userInput.userType"
+      />
+      Developer
+    </label>
+  </div>
+
   <!-- This is the button container  -->
   <div class="row-container">
     <!-- This is the submit button -->

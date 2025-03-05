@@ -12,6 +12,7 @@ export class RegisterComponent {
     firstname: '',
     lastname: '',
     username: '',
+    userType: 'Developer',
     password: '',
   };
 
