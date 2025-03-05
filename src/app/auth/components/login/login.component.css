@@ -1,0 +1,15 @@
+.p-40 {
+  padding: 40px;
+}
+
+.g-24 {
+  gap: 24px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.text-wrap {
+  text-wrap: nowrap;
+}

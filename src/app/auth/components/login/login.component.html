@@ -1,1 +1,66 @@
-<p>login works!</p>
+<form
+  class="card-container col-container p-40 g-24"
+  (ngSubmit)="onSubmitClick()"
+  #formContainer="ngForm"
+>
+  <!-- Title of the Form -->
+  <h3>Login User Form</h3>
+
+  <!-- Username for the user -->
+  <div class="col-container">
+    <input
+      type="text"
+      name="username"
+      placeholder="Enter Username"
+      [(ngModel)]="userInput.username"
+      required
+      #username="ngModel"
+    />
+
+    <!-- Username input error text -->
+    <p class="error-text" *ngIf="!username.valid && username.touched">
+      Please check the username input
+    </p>
+  </div>
+
+  <!-- Password Input Field -->
+  <div class="col-container">
+    <input
+      type="password"
+      name="password"
+      placeholder="Enter Password"
+      [(ngModel)]="userInput.password"
+      required
+      #password="ngModel"
+    />
+
+    <!-- Error Text for the password field -->
+    <p class="error-text" *ngIf="!password.valid && password.touched">
+      Please enter a password with atleast 6 Characters
+    </p>
+  </div>
+
+  <!-- This is the button container  -->
+  <div class="row-container">
+    <!-- This is the submit button -->
+    <button
+      class="secondary-btn flex-1"
+      type="submit"
+      [disabled]="!formContainer.valid || !formContainer.touched"
+    >
+      Login
+    </button>
+
+    <!-- This is the go to login page button -->
+    <button
+      class="destructive-btn flex-1 text-wrap"
+      type="button"
+      (click)="goToRegisterPageClick()"
+    >
+      Go to Register Page
+    </button>
+  </div>
+
+  <!-- Api Call errors are shown here -->
+  <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+</form>
