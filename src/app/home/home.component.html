@@ -1,1 +1,18 @@
-<router-outlet />
+<!-- Header Component containing the whole navigation header -->
+<header class="card-container">
+  <!-- The Navigation URLs -->
+  <nav class="row-container">
+    <a routerLink="projects" routerLinkActive="active">Projects</a>
+    <a routerLink="users" routerLinkActive="active">Users</a>
+  </nav>
+
+  <!-- Button to logout user from the website -->
+  <button class="destructive-btn">Logout</button>
+</header>
+
+<!-- The main content will be decided by the router outlet -->
+<main>
+  <div id="outer-container">
+    <router-outlet />
+  </div>
+</main>
