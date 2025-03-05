@@ -1,1 +1,60 @@
-<p>add works!</p>
+<form
+  class="card-container col-container p-40 g-24"
+  #formContainer="ngForm"
+  (ngSubmit)="onSubmitClick()"
+>
+  <div class="col-container">
+    <!-- Project name -->
+    <input
+      type="text"
+      name="name"
+      placeholder="Enter Project Name"
+      [(ngModel)]="userInput.name"
+      required
+      #name="ngModel"
+    />
+
+    <!-- Error text for name -->
+    <p class="error-text" *ngIf="!name.valid && name.touched">
+      Please Provide a name for the project
+    </p>
+  </div>
+
+  <!-- Project Scale -->
+  <div class="col-container">
+    <input
+      type="text"
+      name="scale"
+      placeholder="Enter Project Scale (Small / Large)"
+      [(ngModel)]="userInput.scale"
+      required
+      #scale="ngModel"
+    />
+
+    <!-- Error text for scale -->
+    <p class="error-text" *ngIf="!scale.valid && scale.touched">
+      Please Provide a Scale out of Small and Large
+    </p>
+  </div>
+
+  <!-- Description Field -->
+  <textarea
+    placeholder="Enter Project Description"
+    name="description"
+    [(ngModel)]="userInput.description"
+  ></textarea>
+
+  <!-- Button Container -->
+  <div class="row-container">
+    <button class="flex-1" type="submit" [disabled]="!formContainer.valid">
+      Submit
+    </button>
+    <button
+      class="destructive-btn flex-1"
+      type="button"
+      (click)="onCancelClick()"
+    >
+      Cancel
+    </button>
+  </div>
+</form>

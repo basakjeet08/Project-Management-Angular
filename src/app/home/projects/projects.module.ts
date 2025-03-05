@@ -4,6 +4,7 @@ import { ProjectsComponent } from './projects.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AddComponent } from './add/add.component';
 import { DetailsComponent } from './details/details.component';
+import { FormsModule } from '@angular/forms';
 
 // These are the routes for the project Module
 const projectsRoutes: Routes = [
@@ -20,6 +21,6 @@ const projectsRoutes: Routes = [
 
 @NgModule({
   declarations: [ProjectsComponent, AddComponent, DetailsComponent],
-  imports: [CommonModule, RouterModule.forChild(projectsRoutes)],
+  imports: [CommonModule, RouterModule.forChild(projectsRoutes), FormsModule],
 })
 export class ProjectsModule {}
