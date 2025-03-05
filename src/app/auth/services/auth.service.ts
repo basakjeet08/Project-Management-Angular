@@ -31,8 +31,6 @@ export class AuthService {
 
     if (type === UserType.PROJECT_MANAGER) {
       userType = UserType.PROJECT_MANAGER;
-    } else if (type === UserType.TEAM_LEADER) {
-      userType = UserType.TEAM_LEADER;
     } else {
       userType = UserType.DEVELOPER;
     }
