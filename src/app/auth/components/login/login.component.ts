@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,11 +18,23 @@ export class LoginComponent {
   errorMessage: string | null = null;
 
   // Injecting the needed dependecies in the constructor
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   // This function is invoked when the user clicks on the submit Buttonm
   onSubmitClick() {
-    console.log(this.userInput);
+    const isSuccess = this.authService.loginUser(
+      this.userInput.username,
+      this.userInput.password
+    );
+
+    // Redirecting to the home route
+    if (isSuccess) {
+      this.router.navigate(['../../', 'home'], { relativeTo: this.route });
+    }
   }
 
   // This function is invoked when the user clicks on the go to register Button
