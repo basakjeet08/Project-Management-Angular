@@ -11,17 +11,3 @@
   background-color: var(--background--color);
   color: var(--on--background--color);
 }
-
-main {
-  flex: 1;
-
-  display: flex;
-  justify-content: center;
-}
-
-#center-container {
-  width: 50vw;
-
-  display: flex;
-  justify-content: center;
-}

@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 // These are the routes for the auth module
 const authRoutes: Routes = [
@@ -20,6 +21,6 @@ const authRoutes: Routes = [
 
 @NgModule({
   declarations: [AuthComponent, RegisterComponent, LoginComponent],
-  imports: [CommonModule, RouterModule.forChild(authRoutes)],
+  imports: [CommonModule, RouterModule.forChild(authRoutes), FormsModule],
 })
 export class AuthModule {}

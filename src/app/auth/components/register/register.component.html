@@ -1,1 +1,95 @@
-<p>register works!</p>
+<form
+  class="card-container col-container p-40 g-24"
+  (ngSubmit)="onSubmitClick()"
+  #formContainer="ngForm"
+>
+  <!-- Title of the Form -->
+  <h3>Register User Form</h3>
+
+  <!-- This is the name consisting of firstname and lastname -->
+  <div class="col-container">
+    <div class="row-container">
+      <!-- First name of the user -->
+      <input
+        type="text"
+        name="firstname"
+        placeholder="Enter Firstname"
+        [(ngModel)]="userInput.firstname"
+        required
+        #firstname="ngModel"
+      />
+
+      <!-- Last name of the user -->
+      <input
+        type="text"
+        name="lastname"
+        placeholder="Enter Lastname"
+        [(ngModel)]="userInput.lastname"
+      />
+    </div>
+
+    <!-- Error text for the Name input -->
+    <p class="error-text" *ngIf="!firstname.valid && firstname.touched">
+      Please enter a valid name for the user
+    </p>
+  </div>
+
+  <!-- Username for the user -->
+  <div class="col-container">
+    <input
+      type="text"
+      name="username"
+      placeholder="Enter Username"
+      [(ngModel)]="userInput.username"
+      required
+      #username="ngModel"
+    />
+
+    <!-- Username input error text -->
+    <p class="error-text" *ngIf="!username.valid && username.touched">
+      Please check the username input
+    </p>
+  </div>
+
+  <!-- Password Input Field -->
+  <div class="col-container">
+    <input
+      type="password"
+      name="password"
+      placeholder="Enter Password"
+      [(ngModel)]="userInput.password"
+      required
+      minlength="6"
+      #password="ngModel"
+    />
+
+    <!-- Error Text for the password field -->
+    <p class="error-text" *ngIf="!password.valid && password.touched">
+      Please enter a password with atleast 6 Characters
+    </p>
+  </div>
+
+  <!-- This is the button container  -->
+  <div class="row-container">
+    <!-- This is the submit button -->
+    <button
+      class="secondary-btn flex-1"
+      type="submit"
+      [disabled]="!formContainer.valid || !formContainer.touched"
+    >
+      Register
+    </button>
+
+    <!-- This is the go to login page button -->
+    <button
+      class="destructive-btn flex-1"
+      type="button"
+      (click)="onGoToLoginPageClick()"
+    >
+      Go to Login Page
+    </button>
+  </div>
+
+  <!-- Api Call errors are shown here -->
+  <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+</form>
